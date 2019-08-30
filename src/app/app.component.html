@@ -1,0 +1,70 @@
+<div style="background-color: #80808052; text-align:center">
+
+  <alert type="secondary"><strong style="
+    padding: 0px 335px 0px 11px;
+    color: #6161ad;
+    font-size: 32px;
+">Contact Our</strong> <br>
+   Customer Support Center
+    <img src="../assets/MarvellousImage.jpeg" style="
+    margin-left: 46px;
+"></alert>
+<!--Add FormGroup woth our model-->
+<div class = "container-fluid">
+  <h2> Login Form</h2>
+<!--Add FormGroup woth our model-->
+<form [formGroup] = "MarvellousForm">
+  <div class="form-group">
+    <label><strong>First Name </strong></label>
+    <input [class.is-invalid] = "MarvellousForm.get('fname').invalid" type="text" class="form-control" formControlName="fname">
+    <small [class.d-none]="MarvellousForm.get('fname').valid" class="text-danger">First name is required</small>
+  
+  </div>
+  <div class="form-group">
+    <label><strong> Last Name </strong></label>
+    <input  type="text" class="form-control" formControlName="lname">
+  </div>
+  <div class="form-group">
+    <label><strong>email</strong></label>
+   <input [class.is-invalid] = "MarvellousForm.get('email').invalid" type="text" class="form-control" formControlName="email">
+   <small [class.d-none]="MarvellousForm.get('email').valid" class="text-danger">email is required</small>
+  </div>
+  <div class="form-group">
+    <label><strong>phone number</strong> </label>
+     <input [class.is-invalid] = "MarvellousForm.get('number').invalid" type="text" class="form-control" formControlName="number">
+    <small [class.d-none]="MarvellousForm.get('number').valid" class="text-danger">phone number is required</small>
+  </div>
+  <div class="form-group">
+    <label><strong> Address </strong> </label>
+    <input  type="text" class="form-control" formControlName="address">
+  </div>
+  <div class="form-group">
+    <label><strong>city</strong></label>
+    <input [class.is-invalid] ="MarvellousForm.get('city').invalid" type="text" class="form-control" formControlName="city">
+    <small [class.d-none]="MarvellousForm.get('city').valid" class="text-danger">enter city name</small>
+  </div>
+  <div class="form-group">
+    <label><strong>Zip Code</strong></label>
+    <input [class.is-invalid] ="MarvellousForm.get('zip').invalid" type="text" class="form-control" formControlName="zip">
+    <small [class.d-none]="MarvellousForm.get('zip').valid" class="text-danger">enter zip code</small>
+  </div>
+   <div class="form-group">
+   <label><strong>State</strong></label><br/>
+       <select formControlName="state">
+    <option *ngFor="let a of states" [value]="state"
+      >{{a}}</option
+    >
+  </select>
+   </div>
+   <div class="form-group">
+      <label><strong>Comment</strong></label><br/>
+       <textarea [class.is-invalid] ="MarvellousForm.get('comment').invalid" rows="5" placeholder="Your Comment Please....." type="text" class="form-control" formControlName="comment">
+    <small [class.d-none]="MarvellousForm.get('comment').valid" class="text-danger">enter comment</small>
+   </textarea> 
+   </div>
+
+<button type="submit" class="btn btn-success" [disabled]="!MarvellousForm.valid">Submit Form</button>
+
+<!--<button type="submit" class="btn btn-primary">Login</button>-->
+</form>
+</div>
